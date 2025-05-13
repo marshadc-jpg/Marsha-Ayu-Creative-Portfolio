@@ -225,7 +225,7 @@ z-index: -1;
     @media (max-width: 768px) {
 
           html, body {
-      overflow: hidden;
+      overflow: scroll;
     }
 
 .bg {

@@ -120,10 +120,11 @@ position: absolute;
 bottom: -5px;
 left: 50%;
 transform: translateX(-50%);
-width: 80%; /* fixed width */
+width: 72%; /* fixed width */
 max-width: none; /* disable max-width limit */
 z-index: -1;
 }
+
 
 .skills-container {
   display: grid;

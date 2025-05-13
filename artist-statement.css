@@ -36,22 +36,22 @@
 
   }
 
-  nav {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
+    nav {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
 
-  nav a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 8px 12px;
-    transition: 0.3s;
-  }
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 8px 12px;
+      transition: 0.3s;
+    }
 
   nav a:hover {
     text-decoration: underline;

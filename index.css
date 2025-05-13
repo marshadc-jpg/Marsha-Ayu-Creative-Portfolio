@@ -24,7 +24,7 @@
   
 .body {
     font-family: 'Apple Garamond', serif;
-    background-color: #FF6CB5;
+    background-color: rgb(255, 108, 181);
     color: black;
     text-align: center;
     overflow: hidden;

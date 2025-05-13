@@ -4,6 +4,11 @@
     padding: 0;
   }
 
+@font-face {
+  font-family: 'Apple Garamond';
+  src: url('fonts/AppleGaramond.ttf') format('truetype');
+}
+
   .bg {
   background-image: url("home/bg.png"); /* no need to escape space */
   background-attachment: fixed; /* key for parallax effect */
@@ -21,7 +26,7 @@
 }
 
   body {
-    font-family: AppleGaramond.ttf;
+    font-family: 'Apple Garamond' , serif;
     background-color: #FF6CB5;
     color: black;
     text-align: center;

@@ -4,6 +4,18 @@
     padding: 0;
   }
 
+body {
+    font-family: 'Apple Garamond' , serif;
+    background-color: rgb(255, 108, 181);
+    color: black;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    height: auto;
+    overflow-y: auto;
+    min-height: 100vh;
+  }
+
 @font-face {
   font-family: 'Apple Garamond';
   src: url('fonts/AppleGaramond.ttf') format('truetype');
@@ -26,19 +38,6 @@
   opacity: 50%;
   z-index: -1; /* push behind everything */
 }
-
-  
-body {
-    font-family: 'Apple Garamond' , serif;
-    background-color: rgb(255, 108, 181);
-    color: black;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-    height: auto;
-    overflow-y: auto;
-    min-height: 100vh;
-  }
   
   .logo-left, .logo-right {
     position: absolute;

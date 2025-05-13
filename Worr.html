@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Works</title>
+  <link rel="stylesheet" href="Worr.css">
+  <style>
+    .dropdown-menu {
+      display: none;
+      list-style: none;
+      background: white;
+      position: absolute;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    .dropdown-wrapper {
+      position: relative;
+      z-index: 1000;
+    }
+    .menu-toggle {
+      cursor: pointer;
+      background-color: #eee;
+      padding: 10px;
+      display: inline-block;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg"></div>
+
+  <nav>
+    <a href="artist-statement.html">ARTIST STATEMENT</a>
+    <a href="skills.html">SKILLS</a>
+    <a href="works.html">WORKS</a>
+  </nav>
+
+  <div class="logo-left">
+    <a href="home.html">
+      <img src="about me/MAP.png" alt="Logo Left">
+    </a>
+  </div>  
+
+  <div class="logo-right">
+    <a href="home.html">
+      <img src="skills/brat logo.png" alt="Logo Right">
+    </a>
+  </div>
+
+  <section class="works-section">
+    <div class="title">
+      <img src="works/organization.png" alt="title" class="title-img">
+    </div>
+  </section>
+
+  <!-- Dropdown Menu -->
+  <div class="dropdown-wrapper">
+    <div class="menu-toggle" onclick="toggleDropdown()">☰ Menu</div>
+    <ul class="dropdown-menu" id="dropdownMenu">
+      <li onclick="showCarousel('carousel1')">TEDxSU</li>
+      <li onclick="showCarousel('carousel3')">IEOM SU</li>
+      <li onclick="showCarousel('carousel4')">Speak Out for Engineering SEAR</li>
+    </ul>
+  </div>
+
+  <!-- Carousel -->
+  <div class="carousel">
+    <div class="carousel-items">
+
+      <div class="carousel-item" id="carousel1">
+        <div class="grid-container">
+          <div class="grid-item strawberry-image"><img src="Works Template/upnext.png"></div>
+          <div class="grid-item blueberry-image"><img src="Works Template/upnext1.png"></div>
+          <div class="grid-item red-info-text"><p>These sky-colored gems are sweet...</p></div>
+          <div class="grid-item fruit-description"><h2>TEDxSU</h2><p>Head of Creative TEDxSampoernaUniversity UPNEXT</p></div>
+          <div class="grid-item basket-image"><img src="Works Template/upnext2.png"></div>
+          <div class="grid-item orange-image"><img src="Works Template/upnext3.png"></div>
+        </div>
+      </div>
+
+
+      <div class="carousel-item" id="carousel3">
+        <div class="grid-container">
+          <div class="grid-item strawberry-image"><img src="Works Template/IEOM.png"></div>
+          <div class="grid-item blueberry-image"><img src="Works Template/IEOM1.png"></div>
+          <div class="grid-item red-info-text"><p>These sky-colored gems are sweet...</p></div>
+          <div class="grid-item fruit-description"><h2>IEOM SU</h2><p>Engineering + Operations Management.</p></div>
+          <div class="grid-item basket-image"><img src="Works Template/IEOM2.png"></div>
+          <div class="grid-item orange-image"><img src="Works Template/IEOM3.png"></div>
+        </div>
+      </div>
+
+      <div class="carousel-item" id="carousel4">
+        <div class="grid-container">
+          <div class="grid-item strawberry-image"><img src="Works Template/sofe.png"></div>
+          <div class="grid-item blueberry-image"><img src="Works Template/sofe1.png"></div>
+          <div class="grid-item red-info-text"><p>These sky-colored gems are sweet...</p></div>
+          <div class="grid-item fruit-description"><h2>Speak Out for Engineering SEAR</h2><p>Head of PubDoc SOfE SEAR 2024</p></div>
+          <div class="grid-item basket-image"><img src="Works Template/sofe2.png"></div>
+          <div class="grid-item orange-image"><img src="Works Template/sofe3.png"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="carousel-controls">
+      <button id="prev">⌫</button>
+      <button id="next">⌦</button>
+    </div>
+
+  <div class="footer">
+    <p>COPYRIGHTS ©️ Marsha Ayu | Reach me through
+      <a href="mailto:marshashufi@gmail.com?subject=Hello&body=Hi%20Marsha!">marshashufi@gmail.com</a>
+    </p>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    let carousel = document.querySelector('.carousel .carousel-items');
+    let items = document.querySelectorAll('.carousel .carousel-items .carousel-item');
+    let next = document.getElementById('next');
+    let prev = document.getElementById('prev');
+    let dots = document.querySelectorAll('.carousel .pagination-dots .dot');
+    let active = 0;
+
+    function reloadCarousel() {
+      carousel.style.left = -items[active].offsetLeft + 'px';
+
+      document.querySelector('.dot.active')?.classList.remove('active');
+      dots[active]?.classList.add('active');
+    }
+
+    next.onclick = function () {
+      active = (active + 1 <= items.length - 1) ? active + 1 : 0;
+      reloadCarousel();
+    }
+
+    prev.onclick = function () {
+      active = (active - 1 >= 0) ? active - 1 : items.length - 1;
+      reloadCarousel();
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        active = index;
+        reloadCarousel();
+      });
+    });
+
+    function toggleDropdown() {
+      const menu = document.getElementById('dropdownMenu');
+      menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function showCarousel(carouselId) {
+      const index = Array.from(items).findIndex(item => item.id === carouselId);
+      if (index >= 0) {
+        active = index;
+        reloadCarousel();
+      }
+      document.getElementById('dropdownMenu').style.display = 'none';
+    }
+
+    window.onresize = reloadCarousel;
+  </script>
+
+  <script>
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(event) {
+    const dropdown = document.getElementById('dropdownMenu');
+    const toggle = document.querySelector('.menu-toggle');
+
+    // If dropdown is visible and click is outside toggle or menu
+    if (dropdown.style.display === 'block' &&
+        !dropdown.contains(event.target) &&
+        !toggle.contains(event.target)) {
+      dropdown.style.display = 'none';
+    }
+  });
+</script>
+
+
+</body>
+</html>

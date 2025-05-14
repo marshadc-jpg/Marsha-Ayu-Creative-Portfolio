@@ -114,6 +114,7 @@ nav a:hover {
 }
 
 .grid-item {
+ background-color: white;
   border-radius: 50px;
   overflow: hidden;
   display: flex;
